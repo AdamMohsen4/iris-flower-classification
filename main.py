@@ -65,4 +65,15 @@ new_data = np.array([[5.1, 3.5, 1.4, 0.2], [6.3, 3.3, 6.0, 2.5], [6.4, 3.2, 4.5,
 prediction = svn.predict(new_data)
 print("Predictions of Species: {}".format(prediction))
 
+# Save the model
+import pickle
+with open ('SVM.pickle', 'wb') as f:
+    pickle.dump(svn, f)
+    
+# Load the model
+with open ('SVM.pickle', 'rb') as f:
+    model = pickle.load(f)
+    model.predict(new_data)
+
+
 
