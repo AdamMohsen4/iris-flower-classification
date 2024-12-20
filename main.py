@@ -1,4 +1,4 @@
-#Imort Packages
+# Import Packages
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import matplotlib.pyplot as plt # data visualization
@@ -41,7 +41,7 @@ plt.show()
 # Split the data to train and test sets
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
-# Support vecrot machine algorithm
+# Support vector machine algorithm
 from sklearn.svm import SVC
 svn = SVC()
 svn.fit(X_train, y_train)
@@ -53,4 +53,16 @@ predictions = svn.predict(X_test)
 # Calculate the accuracy
 from sklearn.metrics import accuracy_score
 accuracy_score(y_test, predictions)
+
+# A detailed classification report
+from sklearn.metrics import classification_report
+print(classification_report(y_test, predictions))
+
+
+# Test the model with a new data
+new_data = np.array([[5.1, 3.5, 1.4, 0.2], [6.3, 3.3, 6.0, 2.5], [6.4, 3.2, 4.5, 1.5]]) # Should predict Setosa, Virginica, Versicolour
+# Predcit the class labels
+prediction = svn.predict(new_data)
+print("Predictions of Species: {}".format(prediction))
+
 
