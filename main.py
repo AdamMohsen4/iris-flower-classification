@@ -8,3 +8,13 @@ import seaborn as sns # data visualization
 columns = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Class_labels'] # Column names
 df = pd.read_csv('iris.data', names = columns) 
 df.head()
+
+df.describe() # Summary statistics
+
+# Visualize the whole dataset
+sns.pairplot(df, hue = 'Class_labels')
+
+# Separate features and target
+data = df.values # Convert the dataframe to a numpy array
+X = data[:, 0:4] # Features are the first 4 columns (Sepal length, Sepal width, Petal length, Petal width)
+y = data[:, 4] # Target is the last column (Class labels)
