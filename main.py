@@ -41,3 +41,16 @@ plt.show()
 # Split the data to train and test sets
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
+# Support vecrot machine algorithm
+from sklearn.svm import SVC
+svn = SVC()
+svn.fit(X_train, y_train)
+
+# Model evaluation
+#Predict from the test dataset
+predictions = svn.predict(X_test)
+
+# Calculate the accuracy
+from sklearn.metrics import accuracy_score
+accuracy_score(y_test, predictions)
+
