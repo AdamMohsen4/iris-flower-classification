@@ -74,6 +74,3 @@ with open ('SVM.pickle', 'wb') as f:
 with open ('SVM.pickle', 'rb') as f:
     model = pickle.load(f)
     model.predict(new_data)
-
-
-
